@@ -1,0 +1,36 @@
+PODS:
+  - libev (4.15.0)
+  - libsodium (1.0.12)
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
+  - ShadowSocks-libev-iOS (3.1.3):
+    - libev (~> 4.15)
+    - libsodium (~> 1.0.12)
+    - ShadowSocks-libev-iOS/c-ares (= 3.1.3)
+    - ShadowSocks-libev-iOS/mbedtls (= 3.1.3)
+  - ShadowSocks-libev-iOS/c-ares (3.1.3):
+    - libev (~> 4.15)
+    - libsodium (~> 1.0.12)
+  - ShadowSocks-libev-iOS/mbedtls (3.1.3):
+    - libev (~> 4.15)
+    - libsodium (~> 1.0.12)
+
+DEPENDENCIES:
+  - Nimble (~> 7.0.2)
+  - Quick (~> 1.2.0)
+  - ShadowSocks-libev-iOS (from `../`)
+
+EXTERNAL SOURCES:
+  ShadowSocks-libev-iOS:
+    :path: ../
+
+SPEC CHECKSUMS:
+  libev: 3d707424e53d6a4469fd5f1e5a35377f1ea97262
+  libsodium: 9a8faa5ef2fa0d2d57bd7f7d79bf8fb7c1a9f0ea
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  ShadowSocks-libev-iOS: 71391b2924fd352b1b22d2c77dc29333b9d48337
+
+PODFILE CHECKSUM: e4615c2444f46d67c4bc21ca0552a315e1fac5be
+
+COCOAPODS: 1.4.0

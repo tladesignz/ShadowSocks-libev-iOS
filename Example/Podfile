@@ -1,6 +1,8 @@
 use_frameworks!
 
 target 'ShadowSocks-libev-iOS_Example' do
+  platform :ios, '11.2'
+
   pod 'ShadowSocks-libev-iOS', :path => '../'
 
   target 'ShadowSocks-libev-iOS_Tests' do

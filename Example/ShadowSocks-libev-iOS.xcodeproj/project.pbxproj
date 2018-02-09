@@ -14,6 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		844995E9D5489E1975F48046 /* Pods_ShadowSocks_libev_iOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F18C810EC6BC47F9E25FF46 /* Pods_ShadowSocks_libev_iOS_Example.framework */; };
+		A09FCC3E202DD5A600A3AB2B /* prepare.sh in Resources */ = {isa = PBXBuildFile; fileRef = A09FCC3D202DD5A600A3AB2B /* prepare.sh */; };
 		EBFB77912E93AEE64EEAC972 /* Pods_ShadowSocks_libev_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 113D777303523FC1542ECAD1 /* Pods_ShadowSocks_libev_iOS_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E508B11751C7CB6BD272458 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		0E508B11751C7CB6BD272458 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		113D777303523FC1542ECAD1 /* Pods_ShadowSocks_libev_iOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShadowSocks_libev_iOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36137C7DEF4E408234B9424D /* Pods-ShadowSocks-libev-iOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShadowSocks-libev-iOS_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShadowSocks-libev-iOS_Example/Pods-ShadowSocks-libev-iOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4CC10CE3D9FD62F9B330CD65 /* Pods-ShadowSocks-libev-iOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShadowSocks-libev-iOS_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShadowSocks-libev-iOS_Example/Pods-ShadowSocks-libev-iOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -43,10 +44,11 @@
 		607FACE51AFB9204008FA782 /* ShadowSocks-libev-iOS_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShadowSocks-libev-iOS_Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		BA0D85E93DA26EE171DC1050 /* ShadowSocks-libev-iOS.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = "ShadowSocks-libev-iOS.podspec"; path = "../ShadowSocks-libev-iOS.podspec"; sourceTree = "<group>"; };
+		A09FCC3D202DD5A600A3AB2B /* prepare.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = prepare.sh; path = ../prepare.sh; sourceTree = "<group>"; };
+		BA0D85E93DA26EE171DC1050 /* ShadowSocks-libev-iOS.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "ShadowSocks-libev-iOS.podspec"; path = "../ShadowSocks-libev-iOS.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C3349237F289297E211BA39E /* Pods-ShadowSocks-libev-iOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShadowSocks-libev-iOS_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShadowSocks-libev-iOS_Tests/Pods-ShadowSocks-libev-iOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E3973F2D098D14247E03A4FE /* Pods-ShadowSocks-libev-iOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShadowSocks-libev-iOS_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShadowSocks-libev-iOS_Tests/Pods-ShadowSocks-libev-iOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		EC81A2491DDF6AF7A5224620 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		EC81A2491DDF6AF7A5224620 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				BA0D85E93DA26EE171DC1050 /* ShadowSocks-libev-iOS.podspec */,
+				A09FCC3D202DD5A600A3AB2B /* prepare.sh */,
 				0E508B11751C7CB6BD272458 /* README.md */,
 				EC81A2491DDF6AF7A5224620 /* LICENSE */,
 			);
@@ -250,6 +253,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				A09FCC3E202DD5A600A3AB2B /* prepare.sh in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,10 +294,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ShadowSocks-libev-iOS_Example/Pods-ShadowSocks-libev-iOS_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ShadowSocks-libev-iOS/ShadowSocks_libev_iOS.framework",
+				"${BUILT_PRODUCTS_DIR}/libsodium/libsodium.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ShadowSocks_libev_iOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libsodium.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
