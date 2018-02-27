@@ -35,7 +35,7 @@ This pod wraps ShadowSocks-libev and contains all necessary dependencies to comp
 
   s.requires_arc = false
 
-  s.header_mappings_dir = 'ShadowSocks-libev-iOS'
+#  s.header_mappings_dir = 'ShadowSocks-libev-iOS'
 
   s.source_files = 'ShadowSocks-libev-iOS/shadowsocks-libev/src/acl.{c,h}',
     'ShadowSocks-libev-iOS/shadowsocks-libev/src/aead.{c,h}',
@@ -57,12 +57,7 @@ This pod wraps ShadowSocks-libev and contains all necessary dependencies to comp
     'ShadowSocks-libev-iOS/shadowsocks-libev/src/stream.{c,h}',
     'ShadowSocks-libev-iOS/shadowsocks-libev/src/udprelay.{c,h}',
     'ShadowSocks-libev-iOS/shadowsocks-libev/src/uthash.h',
-    'ShadowSocks-libev-iOS/shadowsocks-libev/src/utils.{c,h}',
-    'ShadowSocks-libev-iOS/shadowsocks-libev/libbloom/*.{c,h}',
-    'ShadowSocks-libev-iOS/shadowsocks-libev/libbloom/murmur2/*.{c,h}',
-    'ShadowSocks-libev-iOS/shadowsocks-libev/libcork/**/*.{c,h}',
-    'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/**/*.{c,h}',
-    'ShadowSocks-libev-iOS/pcre/*.{c,h}'
+    'ShadowSocks-libev-iOS/shadowsocks-libev/src/utils.{c,h}'
 
   s.public_header_files = 'ShadowSocks-libev-iOS/shadowsocks-libev/src/shadowsocks.h'
 
@@ -85,12 +80,7 @@ This pod wraps ShadowSocks-libev and contains all necessary dependencies to comp
     'ShadowSocks-libev-iOS/shadowsocks-libev/src/stream.h',
     'ShadowSocks-libev-iOS/shadowsocks-libev/src/udprelay.h',
     'ShadowSocks-libev-iOS/shadowsocks-libev/src/uthash.h',
-    'ShadowSocks-libev-iOS/shadowsocks-libev/src/utils.h',
-    'ShadowSocks-libev-iOS/shadowsocks-libev/libbloom/*.h',
-    'ShadowSocks-libev-iOS/shadowsocks-libev/libbloom/murmur2/*.h',
-    'ShadowSocks-libev-iOS/shadowsocks-libev/libcork/**/*.h',
-    'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/**/*.h',
-    'ShadowSocks-libev-iOS/pcre/*.h'
+    'ShadowSocks-libev-iOS/shadowsocks-libev/src/utils.h'
 
   s.compiler_flags = '-DCORK_API=CORK_LOCAL',
     '-DHAVE_PCRE_H',
@@ -102,11 +92,66 @@ This pod wraps ShadowSocks-libev and contains all necessary dependencies to comp
     '-DCONNECT_IN_PROGRESS=EINPROGRESS',
     '-DTCP_NODELAY=0x01'
 
+  s.subspec 'libbloom' do |bloom|
+    bloom.source_files = 'ShadowSocks-libev-iOS/shadowsocks-libev/libbloom/*.{c,h}',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libbloom/murmur2/*.{c,h}'
+    bloom.private_header_files = 'ShadowSocks-libev-iOS/shadowsocks-libev/libbloom/*.h',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libbloom/murmur2/*.h'
+    bloom.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/ShadowSocks-libev-iOS/shadowsocks-libev/libbloom" }
+  end
+
+  s.subspec 'libcork' do |cork|
+    cork.source_files = 'ShadowSocks-libev-iOS/shadowsocks-libev/libcork/**/*.{c,h}'
+    cork.private_header_files = 'ShadowSocks-libev-iOS/shadowsocks-libev/libcork/**/*.h'
+
+    cork.header_mappings_dir = 'ShadowSocks-libev-iOS/shadowsocks-libev/libcork/include'
+
+    cork.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/ShadowSocks-libev-iOS/shadowsocks-libev/libcork/include" }
+  end
+
+  s.subspec 'libipset' do |ipset|
+    ipset.source_files = 'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/bdd/assignments.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/bdd/basics.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/bdd/bdd-iterator.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/bdd/expanded.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/bdd/reachable.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/bdd/read.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/bdd/write.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/general.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/map/allocation.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/map/inspection.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/map/ipv4_map.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/map/ipv6_map.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/map/storage.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/set/allocation.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/set/inspection.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/set/ipv4_set.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/set/ipv6_set.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/set/iterator.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/src/libipset/set/storage.c',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/include/ipset/bdd/nodes.h',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/include/ipset/bits.h',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/include/ipset/errors.h',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/include/ipset/ipset.h',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/include/ipset/logging.h'
+
+    ipset.private_header_files = 'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/include/ipset/bdd/nodes.h',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/include/ipset/bits.h',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/include/ipset/errors.h',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/include/ipset/ipset.h',
+      'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/include/ipset/logging.h'
+
+    ipset.header_mappings_dir = 'ShadowSocks-libev-iOS/shadowsocks-libev/libipset/include'
+
+    ipset.dependency 'ShadowSocks-libev-iOS/libcork'
+    ipset.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/ShadowSocks-libev-iOS/shadowsocks-libev/libipset/include" }
+  end
+
   s.subspec 'c-ares' do |cares|
     cares.preserve_paths = 'ShadowSocks-libev-iOS/c-ares/include/*.h'
     cares.vendored_libraries = 'ShadowSocks-libev-iOS/c-ares/lib/libcares.a'
     cares.libraries = 'cares'
-    cares.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/ShadowSocks-libev-iOS/c-ares/include/*.h"}
+    cares.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/ShadowSocks-libev-iOS/c-ares/include" }
   end
 
   s.subspec 'mbedtls' do |mbedtls|
@@ -115,10 +160,16 @@ This pod wraps ShadowSocks-libev and contains all necessary dependencies to comp
     'ShadowSocks-libev-iOS/mbedtls-for-ios/lib/libmbedtls.a',
     'ShadowSocks-libev-iOS/mbedtls-for-ios/lib/libmbedx509.a'
     mbedtls.libraries = 'mbedcrypto', 'mbedtls', 'mbedx509'
-    mbedtls.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/ShadowSocks-libev-iOS/mbedtls-for-ios/include/mbedtls/*.h"}
+    mbedtls.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/ShadowSocks-libev-iOS/mbedtls-for-ios/include/mbedtls" }
   end
 
-  s.library = 'resolv.9'
+  s.subspec 'pcre' do |pcre|
+    pcre.source_files = 'ShadowSocks-libev-iOS/pcre/*.{c,h}'
+    pcre.private_header_files = 'ShadowSocks-libev-iOS/pcre/*.h'
+    pcre.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/ShadowSocks-libev-iOS/pcre" }
+  end
+
+  s.libraries = 'resolv.9'
   s.dependency 'libsodium', '~> 1.0.12'
   s.dependency 'libev', '~> 4.15'
   
